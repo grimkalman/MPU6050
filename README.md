@@ -1,7 +1,16 @@
-## MPU6050
+# MPU6050
 Driver for the MPU6050 inertial sensor
 
-Example usage:
+## Information
+This code is a simple driver intended to be used in a flight computer. The code was implemented using references:
+* MPU-6000 and MPU-6050
+Register Map and Descriptions
+Revision 4.2
+* MPU-6000 and MPU-6050
+Product Specification
+Revision 3.4
+
+## Example usage:
 ```
 >>import time
 >>import MPU6050
