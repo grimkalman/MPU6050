@@ -1,9 +1,9 @@
-# MPU6050
-Driver for the MPU6050 inertial sensor
-
-Example usage:
-import time
-import MPU6050
+## MPU6050
+#Driver for the MPU6050 inertial sensor
+#Example usage:
+```
+>>import time
+>>import MPU6050
 
 >>sensor = mpu6050(0x68)
 >>sensor.calibrate()
@@ -17,3 +17,4 @@ import MPU6050
 [0.004109130859374997, -0.0010385742187499995, 0.99941552734375]
 [0.005207763671874997, -0.0012827148437499995, 0.99807275390625]
 [0.0020339355468749973, -0.0012827148437499995, 1.00210107421875]...
+```
