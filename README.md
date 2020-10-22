@@ -8,7 +8,6 @@ Example usage:
 
 >>sensor = mpu6050(0x68)
 >>sensor.calibrate()
->>sensor.get_accel()
 >>while True:
 >>      print(sensor.get_accel())
 >>      time.sleep(0.01)
