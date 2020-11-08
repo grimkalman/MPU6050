@@ -1,7 +1,7 @@
 import smbus
 import RPi.GPIO as gpio
 from statistics import mean
-import time
+import sys
 
 # Register addresses
 SMPRT_DIV = 0x19
@@ -97,12 +97,22 @@ class mpu6050():
         return (raw_temp / 340.0) + 36.53
     
     def calibrate(self):
+        print("Calibrating MPU6050 - do not disturb")
+
         # Gather raw data to calculate the offset
         data = []
         for i in range(2000):
             data.append(self.get_raw_data())
+            
+            # Print progress bar
+            if not i%100:
+                print("[{}{}] - {}% \r".format(int(i/100) * "■", (19 - int(i/100)) * ".", int(i / 20)), end = '')
+
+        
 
         # Use the mean as offsets
         for i in range(7):
-            self.offsets[i] = mean([point[i] for point in data])
+            self.offsets[i] = mean([time_point[i] for time_point in data])
+            
+        # Subtract gravity in z-axis
         self.offsets[2] -= 16384
